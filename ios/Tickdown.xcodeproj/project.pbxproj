@@ -3,29 +3,95 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0C80B921A6F3F58F76C31292 /* libPods-Tickdown.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-Tickdown.a */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		1BDACA1EC4241A3992F99EE4 /* LiveActivityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE10ADD63FBFFFFCE14BBE3 /* LiveActivityManager.m */; };
+		27C3602811A84CA287148BDD /* TickdownActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76460A8AAC2F7ADC5E526133 /* TickdownActivityAttributes.swift */; };
+		292F903C61D7EDEFDD019E9C /* NotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5035D0DF7CE4D6A5ACB312 /* NotificationManager.m */; };
 		4ED43FDF4F84599A4816CDA1 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
+		5CBA7FF3447A9FC9B1BE2104 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9148B3F902EDA13540088 /* NotificationManager.swift */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		9360B37B2C89B3EDB1F9A0D1 /* LiveActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745A2AAE5849158FBC4EB194 /* LiveActivityManager.swift */; };
+		98C30B9C3035A0B60025E404 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98C30B9B3035A0B60025E404 /* WidgetKit.framework */; };
+		98C30B9E3035A0B60025E404 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98C30B9D3035A0B60025E404 /* SwiftUI.framework */; };
+		98C30BAB3035A0B70025E404 /* TickdownWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 98C30B9A3035A0B60025E404 /* TickdownWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B7CDFD373433F88CFA078C51 /* TickdownActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76460A8AAC2F7ADC5E526133 /* TickdownActivityAttributes.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		98C30BA93035A0B70025E404 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 98C30B993035A0B60025E404;
+			remoteInfo = TickdownWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		98C30BAC3035A0B70025E404 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				98C30BAB3035A0B70025E404 /* TickdownWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		13B07F961A680F5B00A75B9A /* Tickdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tickdown.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Tickdown/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tickdown/Info.plist; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = Tickdown/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		2BE10ADD63FBFFFFCE14BBE3 /* LiveActivityManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LiveActivityManager.m; path = Tickdown/LiveActivityManager.m; sourceTree = "<group>"; };
+		35E9148B3F902EDA13540088 /* NotificationManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NotificationManager.swift; path = Tickdown/NotificationManager.swift; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-Tickdown.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tickdown.debug.xcconfig"; path = "Target Support Files/Pods-Tickdown/Pods-Tickdown.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-Tickdown.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tickdown.release.xcconfig"; path = "Target Support Files/Pods-Tickdown/Pods-Tickdown.release.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-Tickdown.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tickdown.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		745A2AAE5849158FBC4EB194 /* LiveActivityManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LiveActivityManager.swift; path = Tickdown/LiveActivityManager.swift; sourceTree = "<group>"; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Tickdown/AppDelegate.swift; sourceTree = "<group>"; };
+		76460A8AAC2F7ADC5E526133 /* TickdownActivityAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TickdownActivityAttributes.swift; path = Shared/TickdownActivityAttributes.swift; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Tickdown/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		98C30B9A3035A0B60025E404 /* TickdownWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TickdownWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		98C30B9B3035A0B60025E404 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		98C30B9D3035A0B60025E404 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		CA5035D0DF7CE4D6A5ACB312 /* NotificationManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NotificationManager.m; path = Tickdown/NotificationManager.m; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		98C30BAF3035A0B70025E404 /* Exceptions for "TickdownWidget" folder in "TickdownWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 98C30B993035A0B60025E404 /* TickdownWidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		98C30B9F3035A0B60025E404 /* TickdownWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				98C30BAF3035A0B70025E404 /* Exceptions for "TickdownWidget" folder in "TickdownWidgetExtension" target */,
+			);
+			explicitFileTypes = {
+			};
+			explicitFolders = (
+			);
+			path = TickdownWidget;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		13B07F8C1A680F5B00A75B9A /* Frameworks */ = {
@@ -36,9 +102,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		98C30B973035A0B60025E404 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98C30B9E3035A0B60025E404 /* SwiftUI.framework in Frameworks */,
+				98C30B9C3035A0B60025E404 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		12B2C803C47DD4EC8A707DFC /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				76460A8AAC2F7ADC5E526133 /* TickdownActivityAttributes.swift */,
+			);
+			name = Shared;
+			sourceTree = "<group>";
+		};
 		13B07FAE1A68108700A75B9A /* Tickdown */ = {
 			isa = PBXGroup;
 			children = (
@@ -47,6 +130,10 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
+				745A2AAE5849158FBC4EB194 /* LiveActivityManager.swift */,
+				2BE10ADD63FBFFFFCE14BBE3 /* LiveActivityManager.m */,
+				35E9148B3F902EDA13540088 /* NotificationManager.swift */,
+				CA5035D0DF7CE4D6A5ACB312 /* NotificationManager.m */,
 			);
 			name = Tickdown;
 			sourceTree = "<group>";
@@ -56,6 +143,8 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				5DCACB8F33CDC322A6C60F78 /* libPods-Tickdown.a */,
+				98C30B9B3035A0B60025E404 /* WidgetKit.framework */,
+				98C30B9D3035A0B60025E404 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -72,9 +161,11 @@
 			children = (
 				13B07FAE1A68108700A75B9A /* Tickdown */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
+				98C30B9F3035A0B60025E404 /* TickdownWidget */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				12B2C803C47DD4EC8A707DFC /* Shared */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -85,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				13B07F961A680F5B00A75B9A /* Tickdown.app */,
+				98C30B9A3035A0B60025E404 /* TickdownWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -112,15 +204,37 @@
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */,
 				E235C05ADACE081382539298 /* [CP] Copy Pods Resources */,
+				98C30BAC3035A0B70025E404 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				98C30BAA3035A0B70025E404 /* PBXTargetDependency */,
 			);
 			name = Tickdown;
 			productName = Tickdown;
 			productReference = 13B07F961A680F5B00A75B9A /* Tickdown.app */;
 			productType = "com.apple.product-type.application";
+		};
+		98C30B993035A0B60025E404 /* TickdownWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 98C30BB03035A0B70025E404 /* Build configuration list for PBXNativeTarget "TickdownWidgetExtension" */;
+			buildPhases = (
+				98C30B963035A0B60025E404 /* Sources */,
+				98C30B973035A0B60025E404 /* Frameworks */,
+				98C30B983035A0B60025E404 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				98C30B9F3035A0B60025E404 /* TickdownWidget */,
+			);
+			name = TickdownWidgetExtension;
+			productName = TickdownWidgetExtension;
+			productReference = 98C30B9A3035A0B60025E404 /* TickdownWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -128,10 +242,14 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1640;
 				LastUpgradeCheck = 1210;
 				TargetAttributes = {
 					13B07F861A680F5B00A75B9A = {
 						LastSwiftMigration = 1120;
+					};
+					98C30B993035A0B60025E404 = {
+						CreatedOnToolsVersion = 16.4;
 					};
 				};
 			};
@@ -149,6 +267,7 @@
 			projectRoot = "";
 			targets = (
 				13B07F861A680F5B00A75B9A /* Tickdown */,
+				98C30B993035A0B60025E404 /* TickdownWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -161,6 +280,13 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				4ED43FDF4F84599A4816CDA1 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		98C30B983035A0B60025E404 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,9 +317,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Tickdown/Pods-Tickdown-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Tickdown/Pods-Tickdown-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -230,9 +360,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Tickdown/Pods-Tickdown-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Tickdown/Pods-Tickdown-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -247,10 +381,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				761780ED2CA45674006654EE /* AppDelegate.swift in Sources */,
+				B7CDFD373433F88CFA078C51 /* TickdownActivityAttributes.swift in Sources */,
+				9360B37B2C89B3EDB1F9A0D1 /* LiveActivityManager.swift in Sources */,
+				1BDACA1EC4241A3992F99EE4 /* LiveActivityManager.m in Sources */,
+				5CBA7FF3447A9FC9B1BE2104 /* NotificationManager.swift in Sources */,
+				292F903C61D7EDEFDD019E9C /* NotificationManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		98C30B963035A0B60025E404 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27C3602811A84CA287148BDD /* TickdownActivityAttributes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		98C30BAA3035A0B70025E404 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 98C30B993035A0B60025E404 /* TickdownWidgetExtension */;
+			targetProxy = 98C30BA93035A0B70025E404 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
@@ -259,9 +414,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4J9UJ9D537;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Tickdown/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Tickdown;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -275,8 +434,13 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wisnu.tickdown;
 				PRODUCT_NAME = Tickdown;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -287,8 +451,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4J9UJ9D537;
 				INFOPLIST_FILE = Tickdown/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Tickdown;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -302,7 +470,12 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wisnu.tickdown;
 				PRODUCT_NAME = Tickdown;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -451,6 +624,91 @@
 			};
 			name = Release;
 		};
+		98C30BAD3035A0B70025E404 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 4J9UJ9D537;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TickdownWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TickdownWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wisnu.tickdown.TickdownWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		98C30BAE3035A0B70025E404 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 4J9UJ9D537;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TickdownWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TickdownWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wisnu.tickdown.TickdownWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -468,6 +726,15 @@
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
 				83CBBA211A601CBA00E9B192 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		98C30BB03035A0B70025E404 /* Build configuration list for PBXNativeTarget "TickdownWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98C30BAD3035A0B70025E404 /* Debug */,
+				98C30BAE3035A0B70025E404 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

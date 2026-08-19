@@ -76,6 +76,8 @@ struct TickdownWidget: Widget {
     }
 }
 
+// Canvas previews need a newer floor than the extension itself targets.
+@available(iOS 17.0, *)
 #Preview(as: .systemSmall) {
     TickdownWidget()
 } timeline: {
