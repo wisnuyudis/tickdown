@@ -73,3 +73,21 @@ yarn-error.log
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# AppSealing
+#
+# SDK-nya 168 MB dan appsealing.lic terikat ke akun serta bundle ID, jadi tidak
+# ikut versi. Unduh dari ADC lalu extract ke ios/AppSealingSDK/ — lokasinya
+# tidak boleh diubah, generate_hash mendeteksi versi React Native lewat
+# __dir__/../.. dan akan melewati penggantian engine Hermes diam-diam kalau
+# folder ini salah tempat.
+ios/AppSealingSDK/
+sealing.log
+app_sealing.log
+*.bak-*
+
+# Alat pihak ketiga
+.claude-flow/
+.fortify/
+.otappsec/
+-ssctoken
