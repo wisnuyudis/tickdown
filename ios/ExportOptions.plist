@@ -5,14 +5,21 @@
 	<key>method</key>
 	<string>app-store-connect</string>
 	<key>destination</key>
-	<string>upload</string>
+	<string>export</string>
 	<key>teamID</key>
 	<string>4J9UJ9D537</string>
 	<key>signingStyle</key>
-	<string>automatic</string>
+	<string>manual</string>
+	<key>signingCertificate</key>
+	<string>38C9724FF9D31B4032E485FF244320B014372724</string>
+	<key>provisioningProfiles</key>
+	<dict>
+		<key>com.wisnu.tickdown</key>
+		<string>TickdownSLATimer</string>
+		<key>com.wisnu.tickdown.TickdownWidget</key>
+		<string>TickdownWidgetSLA</string>
+	</dict>
 	<key>uploadSymbols</key>
-	<true/>
-	<key>manageAppVersionAndBuildNumber</key>
 	<true/>
 </dict>
 </plist>

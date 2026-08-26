@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		043E503CE75946E2A508B7AC /* LEASection.mm in Sources */ = {isa = PBXBuildFile; fileRef = C9DDE3330927400FA3C56052 /* LEASection.mm */; };
 		0C80B921A6F3F58F76C31292 /* libPods-Tickdown.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-Tickdown.a */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		1BDACA1EC4241A3992F99EE4 /* LiveActivityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE10ADD63FBFFFFCE14BBE3 /* LiveActivityManager.m */; };
@@ -17,9 +18,14 @@
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		9360B37B2C89B3EDB1F9A0D1 /* LiveActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745A2AAE5849158FBC4EB194 /* LiveActivityManager.swift */; };
+		98B850013036E9CC006A1DD9 /* AppSealingFramework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = C104D74D9EA94700981F266F /* AppSealingFramework.xcframework */; };
+		98B850023036E9CC006A1DD9 /* AppSealingFramework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C104D74D9EA94700981F266F /* AppSealingFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		98C30B9C3035A0B60025E404 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98C30B9B3035A0B60025E404 /* WidgetKit.framework */; };
 		98C30B9E3035A0B60025E404 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98C30B9D3035A0B60025E404 /* SwiftUI.framework */; };
 		98C30BAB3035A0B70025E404 /* TickdownWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 98C30B9A3035A0B60025E404 /* TickdownWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		ADEF0001C0DE0001C0DE0001 /* AppSealingInterfaceBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = ADEF0002C0DE0002C0DE0002 /* AppSealingInterfaceBridge.mm */; };
+		ADEF0004C0DE0004C0DE0004 /* CallRiskMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEF0006C0DE0006C0DE0006 /* CallRiskMonitor.swift */; };
+		ADEF0005C0DE0005C0DE0005 /* CallRiskMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEF0007C0DE0007C0DE0007 /* CallRiskMonitor.m */; };
 		B7CDFD373433F88CFA078C51 /* TickdownActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76460A8AAC2F7ADC5E526133 /* TickdownActivityAttributes.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +40,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		98B850033036E9CC006A1DD9 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				98B850023036E9CC006A1DD9 /* AppSealingFramework.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		98C30BAC3035A0B70025E404 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -64,12 +81,18 @@
 		98C30B9A3035A0B60025E404 /* TickdownWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TickdownWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		98C30B9B3035A0B60025E404 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		98C30B9D3035A0B60025E404 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		ADEF0002C0DE0002C0DE0002 /* AppSealingInterfaceBridge.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = AppSealingInterfaceBridge.mm; path = AppSealingSDK/AppSealingInterfaceBridge.mm; sourceTree = "<group>"; };
+		ADEF0003C0DE0003C0DE0003 /* AppSealingInterfaceBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppSealingInterfaceBridge.h; path = AppSealingSDK/AppSealingInterfaceBridge.h; sourceTree = "<group>"; };
+		ADEF0006C0DE0006C0DE0006 /* CallRiskMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CallRiskMonitor.swift; path = Tickdown/CallRiskMonitor.swift; sourceTree = "<group>"; };
+		ADEF0007C0DE0007C0DE0007 /* CallRiskMonitor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CallRiskMonitor.m; path = Tickdown/CallRiskMonitor.m; sourceTree = "<group>"; };
+		C104D74D9EA94700981F266F /* AppSealingFramework.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = AppSealingFramework.xcframework; path = AppSealingSDK/Release/AppSealingFramework.xcframework; sourceTree = "<group>"; };
+		C9DDE3330927400FA3C56052 /* LEASection.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = LEASection.mm; path = AppSealingSDK/LEASection.mm; sourceTree = "<group>"; };
 		CA5035D0DF7CE4D6A5ACB312 /* NotificationManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NotificationManager.m; path = Tickdown/NotificationManager.m; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		98C30BAF3035A0B70025E404 /* Exceptions for "TickdownWidget" folder in "TickdownWidgetExtension" target */ = {
+		98C30BAF3035A0B70025E404 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -79,18 +102,7 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		98C30B9F3035A0B60025E404 /* TickdownWidget */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				98C30BAF3035A0B70025E404 /* Exceptions for "TickdownWidget" folder in "TickdownWidgetExtension" target */,
-			);
-			explicitFileTypes = {
-			};
-			explicitFolders = (
-			);
-			path = TickdownWidget;
-			sourceTree = "<group>";
-		};
+		98C30B9F3035A0B60025E404 /* TickdownWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (98C30BAF3035A0B70025E404 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = TickdownWidget; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98B850013036E9CC006A1DD9 /* AppSealingFramework.xcframework in Frameworks */,
 				0C80B921A6F3F58F76C31292 /* libPods-Tickdown.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -134,6 +147,8 @@
 				2BE10ADD63FBFFFFCE14BBE3 /* LiveActivityManager.m */,
 				35E9148B3F902EDA13540088 /* NotificationManager.swift */,
 				CA5035D0DF7CE4D6A5ACB312 /* NotificationManager.m */,
+				ADEF0006C0DE0006C0DE0006 /* CallRiskMonitor.swift */,
+				ADEF0007C0DE0007C0DE0007 /* CallRiskMonitor.m */,
 			);
 			name = Tickdown;
 			sourceTree = "<group>";
@@ -141,6 +156,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C104D74D9EA94700981F266F /* AppSealingFramework.xcframework */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				5DCACB8F33CDC322A6C60F78 /* libPods-Tickdown.a */,
 				98C30B9B3035A0B60025E404 /* WidgetKit.framework */,
@@ -159,6 +175,9 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				C9DDE3330927400FA3C56052 /* LEASection.mm */,
+				ADEF0003C0DE0003C0DE0003 /* AppSealingInterfaceBridge.h */,
+				ADEF0002C0DE0002C0DE0002 /* AppSealingInterfaceBridge.mm */,
 				13B07FAE1A68108700A75B9A /* Tickdown */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				98C30B9F3035A0B60025E404 /* TickdownWidget */,
@@ -197,6 +216,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Tickdown" */;
 			buildPhases = (
+				7DD8741EDA67412CB3222D45 /* AppSealing */,
 				C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
@@ -205,6 +225,7 @@
 				00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */,
 				E235C05ADACE081382539298 /* [CP] Copy Pods Resources */,
 				98C30BAC3035A0B70025E404 /* Embed Foundation Extensions */,
+				98B850033036E9CC006A1DD9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -330,6 +351,25 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tickdown/Pods-Tickdown-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		7DD8741EDA67412CB3222D45 /* AppSealing */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = AppSealing;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ \"${CONFIGURATION}\" == \"Debug\" ]; then\n    rm -Rf \"${TARGET_BUILD_DIR}/AppSealingFramework.framework\"\n    if [[ \"${SDKROOT}\" == *\"Simulator\"* ]]; then\n        cp -R \"${SRCROOT}\"/AppSealingSDK/Debug/AppSealingFramework.xcframework/ios-arm64_x86_64-simulator/AppSealingFramework.framework \"${TARGET_BUILD_DIR}/\"\n    else\n        cp -R \"${SRCROOT}\"/AppSealingSDK/Debug/AppSealingFramework.xcframework/ios-arm64/AppSealingFramework.framework \"${TARGET_BUILD_DIR}/\"\n    fi\nfi";
+		};
 		C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -380,12 +420,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				043E503CE75946E2A508B7AC /* LEASection.mm in Sources */,
+				ADEF0001C0DE0001C0DE0001 /* AppSealingInterfaceBridge.mm in Sources */,
 				761780ED2CA45674006654EE /* AppDelegate.swift in Sources */,
 				B7CDFD373433F88CFA078C51 /* TickdownActivityAttributes.swift in Sources */,
 				9360B37B2C89B3EDB1F9A0D1 /* LiveActivityManager.swift in Sources */,
 				1BDACA1EC4241A3992F99EE4 /* LiveActivityManager.m in Sources */,
 				5CBA7FF3447A9FC9B1BE2104 /* NotificationManager.swift in Sources */,
 				292F903C61D7EDEFDD019E9C /* NotificationManager.m in Sources */,
+				ADEF0004C0DE0004C0DE0004 /* CallRiskMonitor.swift in Sources */,
+				ADEF0005C0DE0005C0DE0005 /* CallRiskMonitor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,10 +458,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				COMBINE_C_AND_OBJC = YES;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 4J9UJ9D537;
 				ENABLE_BITCODE = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				INFOPLIST_FILE = Tickdown/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Tickdown;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
@@ -426,7 +473,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -451,9 +498,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CODE_SIGN_IDENTITY = "Apple Distribution";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_C_AND_OBJC = YES;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 4J9UJ9D537;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				INFOPLIST_FILE = Tickdown/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Tickdown;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
@@ -462,7 +512,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -470,6 +520,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wisnu.tickdown;
 				PRODUCT_NAME = Tickdown;
+				PROVISIONING_PROFILE_SPECIFIER = TickdownSLATimer;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -679,7 +730,8 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Distribution";
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -701,6 +753,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wisnu.tickdown.TickdownWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = TickdownWidgetSLA;
 				SKIP_INSTALL = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = YES;
