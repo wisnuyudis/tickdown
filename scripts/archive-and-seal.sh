@@ -230,14 +230,32 @@ PY
   return 1
 }
 
-echo "==> [3/7] Memeriksa bridge React Native"
+echo "==> [3/7] Memeriksa bridge & call protection"
 if grep -q "AppSealingInterfaceBridge.mm in Sources" "$PBXPROJ"; then
-  echo "    OK"
+  echo "    Bridge: OK"
 elif add_bridge_to_project; then
   :
 else
   echo "    PERINGATAN: NativeModules.AppSealingInterfaceBridge akan undefined —"
   echo "    aplikasi tertutup tanpa penjelasan ke user. Sealing tetap jalan."
+fi
+
+# action=callback membuat SDK hanya melapor: tidak ada alert, aplikasi tidak
+# ditutup, semuanya diserahkan ke aplikasi. Tanpa CallRiskMonitor yang menerima
+# laporan itu, fitur ini diam total — dan diamnya tidak terlihat di mana pun.
+CP_ACTION=""
+for flag in "${SEALING_FLAGS[@]}"; do
+  case "$flag" in
+    -call-protection=enable,action=*) CP_ACTION="${flag##*action=}" ;;
+  esac
+done
+if [ "$CP_ACTION" = "callback" ] && ! grep -q "CallRiskMonitor.swift in Sources" "$PBXPROJ"; then
+  echo "    PERINGATAN: action=callback tapi CallRiskMonitor tidak ada di project."
+  echo "    SDK akan melapor ke ruang kosong — tidak ada peringatan, aplikasi"
+  echo "    tidak tertutup. Pakai action=warning-exit kalau aplikasi belum"
+  echo "    menanganinya sendiri."
+elif [ -n "$CP_ACTION" ]; then
+  echo "    Call protection: $CP_ACTION"
 fi
 
 echo "==> [4/7] Memeriksa signing identity"
