@@ -242,10 +242,14 @@ fi
 
 echo "==> [4/7] Memeriksa signing identity"
 CERT_SHA1=$(/usr/libexec/PlistBuddy -c "Print :signingCertificate" "$EXPORT_OPTIONS")
-if ! security find-identity -v -p codesigning | grep -qi "$CERT_SHA1"; then
+# Ditampung dulu, bukan dipipe ke grep -q: pipefail akan mengambil SIGPIPE dari
+# security kalau grep keluar lebih dulu. Di sini output-nya kecil sehingga jarang
+# terjadi, tapi bug-nya sama dengan yang membuat verifikasi Hermes salah lapor.
+IDENTITIES=$(security find-identity -v -p codesigning)
+if ! grep -qi "$CERT_SHA1" <<<"$IDENTITIES"; then
   echo "    GAGAL: certificate $CERT_SHA1 tidak ada di keychain."
   echo "    Identity yang tersedia:"
-  security find-identity -v -p codesigning
+  echo "$IDENTITIES"
   exit 1
 fi
 echo "    OK: $CERT_SHA1"
@@ -310,9 +314,13 @@ while IFS= read -r fw; do
   [ -f "$candidate" ] && { ENGINE="$candidate"; break; }
 done < <(find "$TMP/Payload" -type d -name "hermes*.framework")
 
+# grep membaca binary-nya langsung. Lewat "strings | grep -q" pemeriksaan ini
+# selalu melaporkan gagal justru ketika marker ADA: grep -q keluar begitu cocok,
+# strings kena SIGPIPE, dan set -o pipefail mengambil status strings (141) —
+# bukan status grep yang sukses.
 if [ -z "$ENGINE" ]; then
   echo "    Tidak ada engine Hermes di bundle — dilewati."
-elif strings -a "$ENGINE" | grep -q "\[AppSealing\] hermes engine"; then
+elif grep -aq "\[AppSealing\] hermes engine" "$ENGINE"; then
   echo "    OK: engine sudah diganti versi AppSealing"
 else
   echo "    GAGAL: engine Hermes masih bawaan React Native."
