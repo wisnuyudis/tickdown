@@ -154,15 +154,90 @@ if ! sdk_sees_project_root "$HASH_SCRIPT"; then
 fi
 echo "    OK: generate_hash melihat root project di $PROJECT_ROOT"
 
+#-----------------------------------------------------------------------------
+# Assistant hanya menyetel SWIFT_OBJC_BRIDGING_HEADER ke AppSealingInterfaceBridge.h.
+# File .mm yang berisi RCT_EXPORT_MODULE tidak pernah ikut dikompilasi, jadi
+# kelas Objective-C-nya tidak ada di binary dan NativeModules.AppSealingInterfaceBridge
+# selalu undefined di JavaScript.
+#
+# Penyisipan bertumpu pada LEASection.mm sebagai jangkar: Assistant selalu
+# menambahkannya ke target aplikasi, jadi baris-barisnya menunjukkan build phase
+# dan group mana yang benar tanpa perlu menelusuri PBXNativeTarget. Path-nya pun
+# diturunkan dari path LEASection, sehingga ikut benar di mana pun SDK berada.
+#-----------------------------------------------------------------------------
+add_bridge_to_project() {
+  if pgrep -x Xcode >/dev/null; then
+    echo "    Xcode sedang berjalan — penambahan dilewati. Tutup Xcode untuk mengaktifkan."
+    return 0
+  fi
+
+  local backup="$PBXPROJ.bak-bridge-$$"
+  cp "$PBXPROJ" "$backup"
+
+  if python3 - "$PBXPROJ" "$PROJECT_ROOT/ios" <<'PY'
+import os, re, sys
+
+path, ios_dir = sys.argv[1], sys.argv[2]
+src = open(path).read()
+
+anchor = re.search(r'\t\t([0-9A-F]{24}) /\* LEASection\.mm \*/ = \{isa = PBXFileReference;[^\n]*path = ([^;]+);[^\n]*\n', src)
+build  = re.search(r'\t\t([0-9A-F]{24}) /\* LEASection\.mm in Sources \*/ = \{isa = PBXBuildFile;[^\n]*\n', src)
+if not anchor or not build:
+    sys.exit("LEASection.mm tidak ditemukan sebagai jangkar")
+
+lea_path = anchor.group(2).strip().strip('"')
+base = os.path.dirname(lea_path)
+mm, h = os.path.join(base, "AppSealingInterfaceBridge.mm"), os.path.join(base, "AppSealingInterfaceBridge.h")
+for rel in (mm, h):
+    if not os.path.exists(os.path.join(ios_dir, rel)):
+        sys.exit(f"tidak ada di disk: {rel}")
+
+ids = ["ADEF00B1C0DE00B1C0DE00B1", "ADEF00B2C0DE00B2C0DE00B2", "ADEF00B3C0DE00B3C0DE00B3"]
+if any(i in src for i in ids):
+    sys.exit("ID bentrok")
+bf, ref_mm, ref_h = ids
+
+src = src.replace(build.group(0), build.group(0) +
+    f'\t\t{bf} /* AppSealingInterfaceBridge.mm in Sources */ = {{isa = PBXBuildFile; fileRef = {ref_mm} /* AppSealingInterfaceBridge.mm */; }};\n', 1)
+
+src = src.replace(anchor.group(0), anchor.group(0) +
+    f'\t\t{ref_mm} /* AppSealingInterfaceBridge.mm */ = {{isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = AppSealingInterfaceBridge.mm; path = {mm}; sourceTree = "<group>"; }};\n'
+    f'\t\t{ref_h} /* AppSealingInterfaceBridge.h */ = {{isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppSealingInterfaceBridge.h; path = {h}; sourceTree = "<group>"; }};\n', 1)
+
+# Daftar anggota group dan daftar Compile Sources: dua tempat berbeda yang
+# sama-sama menyebut LEASection, dibedakan oleh sufiks "in Sources".
+src = re.sub(r'(\n\t\t\t\t' + build.group(1) + r' /\* LEASection\.mm in Sources \*/,\n)',
+             r'\1' + f'\t\t\t\t{bf} /* AppSealingInterfaceBridge.mm in Sources */,\n', src, count=1)
+src = re.sub(r'(\n\t\t\t\t' + anchor.group(1) + r' /\* LEASection\.mm \*/,\n)',
+             r'\1' + f'\t\t\t\t{ref_h} /* AppSealingInterfaceBridge.h */,\n'
+                     f'\t\t\t\t{ref_mm} /* AppSealingInterfaceBridge.mm */,\n', src, count=1)
+
+open(path, "w").write(src)
+PY
+  then
+    if plutil -lint "$PBXPROJ" >/dev/null 2>&1 \
+       && grep -q "AppSealingInterfaceBridge.mm in Sources" "$PBXPROJ"; then
+      rm -f "$backup"
+      echo "    Ditambahkan ke Compile Sources."
+      return 0
+    fi
+    echo "    Hasil penambahan tidak valid — dikembalikan."
+  else
+    echo "    Tidak bisa ditambahkan otomatis."
+  fi
+
+  mv "$backup" "$PBXPROJ"
+  return 1
+}
+
 echo "==> [3/7] Memeriksa bridge React Native"
 if grep -q "AppSealingInterfaceBridge.mm in Sources" "$PBXPROJ"; then
   echo "    OK"
+elif add_bridge_to_project; then
+  :
 else
-  # Assistant hanya menyetel SWIFT_OBJC_BRIDGING_HEADER ke file .h-nya; file .mm
-  # yang berisi RCT_EXPORT_MODULE tidak pernah ikut dikompilasi.
-  echo "    PERINGATAN: AppSealingInterfaceBridge.mm tidak ada di Compile Sources."
-  echo "    Proteksi tetap aktif, tapi NativeModules.AppSealingInterfaceBridge"
-  echo "    akan undefined — aplikasi tertutup tanpa penjelasan ke user."
+  echo "    PERINGATAN: NativeModules.AppSealingInterfaceBridge akan undefined —"
+  echo "    aplikasi tertutup tanpa penjelasan ke user. Sealing tetap jalan."
 fi
 
 echo "==> [4/7] Memeriksa signing identity"
@@ -224,7 +299,16 @@ echo "==> Verifikasi engine Hermes di IPA hasil sealing"
 TMP=$(mktemp -d)
 trap 'rm -rf "$TMP"' EXIT
 unzip -q "$IPA" -d "$TMP"
-ENGINE=$(find "$TMP/Payload" -type f -path "*/hermes*.framework/*" ! -name "*.plist" | head -1)
+
+# Ambil executable framework-nya, yaitu file yang senama dengan framework —
+# hermes.framework/hermes. Menyaring "file apa pun di dalam framework" pernah
+# menjatuhkan pilihan ke _CodeSignature/CodeResources, yang jelas tidak memuat
+# marker apa pun dan melaporkan build sehat sebagai gagal.
+ENGINE=""
+while IFS= read -r fw; do
+  candidate="$fw/$(basename "$fw" .framework)"
+  [ -f "$candidate" ] && { ENGINE="$candidate"; break; }
+done < <(find "$TMP/Payload" -type d -name "hermes*.framework")
 
 if [ -z "$ENGINE" ]; then
   echo "    Tidak ada engine Hermes di bundle — dilewati."
